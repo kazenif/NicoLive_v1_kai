@@ -1,0 +1,48 @@
+﻿kai 26
+Nico.cs に
+関数：public bool GetSaleList(string iLv, ref List<SaleList> iSaleList)
+関数：public bool Purchase(string iLv, string iToken, SaleList iItem)
+GetOldLive
+定義：struct SaleList
+
+Utils.csに
+関数:public static int CalcTime()　追加
+
+WorkerAutoExdend.cs
+自動延長の修正。丸コピーすること
+
+ChangePropDlgの下全部
+
+WakuDlg.csの変更部分、
+
+//-----------------------------------------------------------------------
+
+Settings にXSplit使用の設定
+　use_xsplit
+SettingDialog.csに記述追加
+            mUseXSplit.Checked = Properties.Settings.Default.use_xsplit;
+            Properties.Settings.Default.use_xsplit = mUseXSplit.Checked;
+
+FMLE.cs に XSplit使用の設定
+FMEStatus.cs
+Timer.cs でステータスの変更をチェック
+Form1 に　mXSplitTimer でタイマー作成。1秒間隔。Enable
+
+XSplitのチェックをセーブする前に、設定が変化したときは、FMLEをStopする
+
+Timerのイベント
+
+        private void mXSplitTimer_Tick(object sender, EventArgs e)
+        {
+            XSplit.HandlingStatus(LiveID);
+        }
+
+CommentForm.cs 全コピー
+Comments.cs XSplitシーン切り替え
+
+enable_xsplit_scene_change の付与
+
+            // XSplitメッセージ
+            if (Properties.Settings.Default.enable_xsplit_scene_change) XSplitSceneControl(iCmt);
+
+WorkerLogin.cs 放送終了でも、30回リトライ

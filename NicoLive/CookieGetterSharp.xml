@@ -1,0 +1,693 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CookieGetterSharp</name>
+    </assembly>
+    <members>
+        <member name="T:Hal.CookieGetterSharp.CookieGetter">
+            <summary>
+            指定したブラウザからクッキーを取得する
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.ICookieGetter">
+            <summary>
+            指定されたパスからブラウザのクッキーを取得するためのインターフェース
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ICookieGetter.GetCookie(System.Uri,System.String)">
+            <summary>
+            対象URL上の名前がKeyであるクッキーを取得します。
+            </summary>
+            <param name="url"></param>
+            <param name="key"></param>
+            <exception cref="T:Hal.CookieGetterSharp.CookieGetterException"></exception>
+            <returns>対象のクッキー。なければnull</returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ICookieGetter.GetCookieCollection(System.Uri)">
+            <summary>
+            urlに関連付けられたクッキーを取得します。
+            </summary>
+            <param name="url"></param>
+            <exception cref="T:Hal.CookieGetterSharp.CookieGetterException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ICookieGetter.GetAllCookies">
+            <summary>
+            すべてのクッキーを取得します。
+            </summary>
+            <exception cref="T:Hal.CookieGetterSharp.CookieGetterException"></exception>
+            <returns></returns>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ICookieGetter.Status">
+            <summary>
+            クッキーに関する情報を取得します。
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.CreateInstance(Hal.CookieGetterSharp.BrowserType)">
+            <summary>
+            指定したブラウザ用のクッキーゲッターを取得する
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.CreateInstance(Hal.CookieGetterSharp.CookieStatus)">
+            <summary>
+            CookieStatusからCookieGetterを復元する
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.CreateInstances(System.Boolean)">
+            <summary>
+            すべてのクッキーゲッターを取得する
+            </summary>
+            <param name="availableOnly">利用可能なものだけを選択するかどうか</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.GetCookie(System.Uri,System.String)">
+            <summary>
+            対象URL上の名前がKeyであるクッキーを取得します。
+            </summary>
+            <param name="url"></param>
+            <param name="key"></param>
+            <exception cref="T:Hal.CookieGetterSharp.CookieGetterException"></exception>
+            <returns>対象のクッキー。なければnull</returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.GetCookieCollection(System.Uri)">
+            <summary>
+            urlに関連付けられたクッキーを取得します。
+            </summary>
+            <param name="url"></param>
+            <exception cref="T:Hal.CookieGetterSharp.CookieGetterException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.GetAllCookies">
+            <summary>
+            すべてのクッキーを取得します。
+            </summary>
+            <exception cref="T:Hal.CookieGetterSharp.CookieGetterException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.ToString">
+            <summary>
+            設定の名前を返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.Equals(System.Object)">
+            <summary>
+            クッキーゲッターを比較して等しいか検査します
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetter.GetHashCode">
+            <summary>
+            ハッシュ値を計算します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieGetter.CookiePath">
+            <summary>
+            クッキーが保存されているファイル・ディレクトリへのパスを取得・設定します。
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieGetter.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.FirefoxProfile">
+            <summary>
+            Firefoxのプロフィールを表現します。
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.FirefoxProfile.GetDefaultProfile(System.String,System.String)">
+            <summary>
+            既定のプロファイルを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.FirefoxProfile.GetProfiles(System.String,System.String)">
+            <summary>
+            Firefoxのプロフィールフォルダ内のフォルダをすべて取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.FirefoxCookieGetter">
+            <summary>
+            Firefoxからクッキーを取得する
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.SqlCookieGetterNT">
+            <summary>
+            SQLiteを利用してクッキーを保存するタイプのブラウザからクッキーを取得するクラス
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.SqlCookieGetterNT.DataToCookie(System.Object[])">
+            <summary>
+            SQLから取得したデータをクッキーに変換する
+            </summary>
+            <param name="data">指定されたQueryで取得した１行分のデータ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.SqlCookieGetterNT.MakeQuery">
+            <summary>
+            すべてのクッキーを取得するためのクエリーを生成する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.SqlCookieGetterNT.MakeQuery(System.Uri)">
+            <summary>
+            指定されたURLに関連したクッキーを取得するためのクエリーを生成する
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.SqlCookieGetterNT.MakeQuery(System.Uri,System.String)">
+            <summary>
+            指定されたURLの名前がkeyであるクッキーを取得するためのクエリーを生成する
+            </summary>
+            <param name="url"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.ComboBoxNicoBrowser">
+            <summary>
+            コンボボックスニコ生用ブラウザー
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.#ctor">
+            <summary>
+            ComboBoxNicoBrowserクラスの新しいインスタンスを既定のプロパティ値で初期化します。
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.GetCookieStatus">
+            <summary>
+            コンボボックスで選択しているCookieGetterの状態をbase64にて取得する
+            この値をSetCookieStatusに渡すことで状態を復元する
+            取得失敗時nullを返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.SetCookieStatus(System.String)">
+            <summary>
+            GetCookieStatusで取得した値を渡すことで状態を復元する
+            </summary>
+            <param name="cookieStatusBase64"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.RefreshBrowser">
+            <summary>
+            更新します
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.CreateControlsInstance">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.RefreshItems">
+            <summary>
+            項目を更新
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.ComboBoxNicoBrowser.Dispose(System.Boolean)">
+            <summary>
+            リソースの開放
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.AllBrowser">
+            <summary>
+            すべてのブラウザーを表示するかどうかを示します。
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.CookieUrl">
+            <summary>
+            クッキーを取り出すUrlを取得、設定する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.CookieKey">
+            <summary>
+            クッキーのKeyを取得、設定する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.CookieValue">
+            <summary>
+            クッキーのKeyに対するValueを取得する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.VerifyUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.VerifyRegex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.VerifyTimeout">
+            <summary>
+            タイムアウト値
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.CookiePath">
+            <summary>
+            クッキーが保存されているフォルダを取得、設定する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.ComboBoxNicoBrowser.CookieStatus">
+            <summary>
+            CookieGetterの状態を表す
+            この値をバックアップ・リストアする
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.IBrowserManager">
+            <summary>
+            CookieGetterを生成するためのインターフェース
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IBrowserManager.CreateDefaultCookieGetter">
+            <summary>
+            既定のCookieGetterを取得します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IBrowserManager.CreateCookieGetters">
+            <summary>
+            利用可能なすべてのCookieGetterを取得します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.IBrowserManager.BrowserType">
+            <summary>
+            ブラウザの種類
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.GoogleChromeCookieGetter">
+            <summary>
+            GoogleChromeからクッキーを取得する
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.IECookieGetter">
+            <summary>
+            IEやトライデントエンジンを利用しているブラウザのクッキーを取得する
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.GetCookie(System.Uri,System.String)">
+            <summary>
+            対象URL上の名前がKeyであるクッキーを取得する
+            </summary>
+            <param name="url"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.GetCookieCollection(System.Uri)">
+            <summary>
+            urlに関連付けられたクッキーを取得します。
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.GetCookiesWinApi(System.Uri,System.String)">
+            <summary>
+            win32apiを使って対象URL上の名前がKeyであるクッキーを取得します
+            </summary>
+            <param name="url"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.SelectFiles(System.Uri,System.Collections.Generic.List{System.String})">
+            <summary>
+            urlで指定されたサイトで使用されるクッキーが保存されているファイルを選択する
+            </summary>
+            <param name="url"></param>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.GetAllFiles">
+            <summary>
+            すべてのクッキーファイルを取得してアカウントごとに配列化する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.PickCookiesFromFile(System.String)">
+            <summary>
+            指定されたファイルからクッキーを取得する
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.RemoveTopLevelDomain(System.String)">
+            <summary>
+            ホスト名からトップレベルドメインを取り除く
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.GetFileHostName(System.String)">
+            <summary>
+            ファイルの中身からホスト名を取得する
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.FileTimeToDateTime(System.Int64,System.Int64)">
+            <summary>
+            ファイルタイムを日付に直す
+            http://wisdom.sakura.ne.jp/system/winapi/win32/win112.html
+            </summary>
+            <param name="low"></param>
+            <param name="high"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.CompareCookieExpiresAsc(System.Net.Cookie,System.Net.Cookie)">
+            <summary>
+            クッキーを有効期限の昇順に並び替える
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IECookieGetter.CompareCookieExpiresDesc(System.Net.Cookie,System.Net.Cookie)">
+            <summary>
+            クッキーを有効期限の降順に並び替える
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.PathType">
+            <summary>
+            PathがFileとDirectoryのどちらを示しているかを表す
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.PathType.File">
+            <summary>
+            ファイル
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.PathType.Directory">
+            <summary>
+            ディレクトリ
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.CookieStatus">
+            <summary>
+            CookieGetterの状態を表すインターフェース
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieStatus.ToString">
+            <summary>
+            DisplayNameを返します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieStatus.Equals(System.Object)">
+            <summary>
+            ブラウザ名、クッキー保存先が等しいかを調べます
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieStatus.GetHashCode">
+            <summary>
+            ハッシュコードを返します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieStatus.BrowserType">
+            <summary>
+            ブラウザの種類を取得する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieStatus.IsAvailable">
+            <summary>
+            利用可能かどうかを取得する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieStatus.Name">
+            <summary>
+            識別名を取得する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieStatus.CookiePath">
+            <summary>
+            クッキーが保存されているフォルダを取得、設定する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieStatus.PathType">
+            <summary>
+            CookiePathがFileを表すのか、Directoryを表すのかを取得する
+            </summary>
+        </member>
+        <member name="P:Hal.CookieGetterSharp.CookieStatus.DisplayName">
+            <summary>
+            ToStringで表示される名前。nullにするとNameが表示されるようになる。
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.NativeWrapper.win32api">
+            <summary>
+            win32api
+            </summary>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.CookieGetterException">
+            <summary>
+            クッキー取得に関する例外
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetterException.#ctor">
+            <summary>
+            クラスの新しいインスタンスを初期化します。
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetterException.#ctor(System.String)">
+            <summary>
+            指定したエラー メッセージを使用して、System.Exception クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="message">エラーを説明するメッセージ。</param>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetterException.#ctor(System.String,System.Exception)">
+            <summary>
+            指定したエラー メッセージと、この例外の原因である内部例外への参照を使用して、System.Exception クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="message">例外の原因を説明するエラー メッセージ。</param>
+            <param name="inner">現在の例外の原因である例外。内部例外が指定されていない場合は、null 参照 (Visual Basic の場合は Nothing)。</param>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.CookieGetterException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            シリアル化したデータを使用して、System.Exception クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="info">スローされている例外に関するシリアル化済みオブジェクト データを保持している System.Runtime.Serialization.SerializationInfo。</param>
+            <param name="context">転送元または転送先に関するコンテキスト情報を含んでいる System.Runtime.Serialization.StreamingContext。</param>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.UnixTimeToDateTime(System.Int32)">
+            <summary>
+            Unix時間をDateTimeに変換する
+            </summary>
+            <param name="UnixTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.DateTimeToUnixTime(System.DateTime)">
+            <summary>
+            DateTimeをUnix時間に変換する
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.ReplacePathSymbols(System.String)">
+            <summary>
+            %APPDATA%などを実際のパスに変換する
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.AddSrashLast(System.Uri)">
+            <summary>
+            必要があればuriの最後に/をつける
+            Pathの指定がある場合、uriの最後に/があるかないかで取得できない場合があるので
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.AddCookieToContainer(System.Net.CookieContainer,System.Net.Cookie)">
+            <summary>
+            クッキーコンテナにクッキーを追加する
+            domainが.hal.fscs.jpなどだと http://hal.fscs.jp でクッキーが有効にならないので.ありとなし両方指定する
+            </summary>
+            <param name="container"></param>
+            <param name="cookie"></param>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.GetTempFilePath">
+            <summary>
+            実行プログラムフォルダ内に一時ファイル名の取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.md5(System.String)">
+            <summary>
+            MD5ハッシュを生成
+            </summary>
+            <param name="textData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.Utility.GetResponseText(System.String,System.Net.CookieContainer,System.Int32)">
+            <summary>
+            url上のページを取得する
+            </summary>
+            <param name="url"></param>
+            <param name="cookies"></param>
+            <param name="defaultTimeout"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.IEComponentBrowserManager">
+            <summary>
+            IEコンポーネントでアクセス可能なクッキーのみを取得する
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IEComponentBrowserManager.CreateCookieGetters">
+            <summary>
+            IEBrowserManagerで環境にあわせて適切な物を返すようにしてあるので、ここでは何もしない
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.IEBrowserManager">
+            <summary>
+            IE系のすべてのクッキーを取得する
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.LunascapeGeckoBrowserManager.SearchDirectory">
+            <summary>
+            Lunascape6のプラグインフォルダからFirefoxのクッキーが保存されているパスを検索する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.BrowserType">
+            <summary>
+            ブラウザの種類
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.IE">
+            <summary>
+            IE系ブラウザ(IEComponent + IESafemode)(XP)
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.IEComponent">
+            <summary>
+            XPのIEやトライデントエンジンを使用しているブラウザ
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.IESafemode">
+            <summary>
+            Vista以降のIE
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Firefox">
+            <summary>
+            Firefox
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.PaleMoon">
+            <summary>
+            PaleMoon
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Songbird">
+            <summary>
+            Songbird
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.SeaMonkey">
+            <summary>
+            SeaMonkey
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.GoogleChrome">
+            <summary>
+            Google Chrome
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.ComodoDragon">
+            <summary>
+            Comodo Dragon
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.ChromePlus">
+            <summary>
+            Chrome Plus
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.CoolNovo">
+            <summary>
+            CoolNovo
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Opera">
+            <summary>
+            Opera
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Safari">
+            <summary>
+            Safari
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.LunascapeGecko">
+            <summary>
+            Lunascape6 Geckoエンジン
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.LunascapeWebkit">
+            <summary>
+            Lunascape6 Webkitエンジン
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Sleipnir3Gecko">
+            <summary>
+            Sleipnir3 Geckoエンジン
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.RockMelt">
+            <summary>
+            RockMelt
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Maxthon">
+            <summary>
+            Maxthon
+            </summary>
+        </member>
+        <member name="F:Hal.CookieGetterSharp.BrowserType.Chromium">
+            <summary>
+            Chromium
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.WebkitCookieGetter.ParseCookie(System.String)">
+            <summary>
+            クッキーヘッダーをクッキーに変換する
+            </summary>
+            <param name="header"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.LunascapeWebkitBrowserManager.SearchDirectory">
+            <summary>
+            Lunascape6のプラグインフォルダからFirefoxのクッキーが保存されているパスを検索する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hal.CookieGetterSharp.IESafemodeBrowserManager">
+            <summary>
+            IEのクッキーのうちVista以降の保護モードで使われるクッキーのみを取得する
+            </summary>
+        </member>
+        <member name="M:Hal.CookieGetterSharp.IESafemodeBrowserManager.CreateCookieGetters">
+            <summary>
+            IEBrowserManagerで環境にあわせて適切な物を返すようにしてあるので、ここでは何もしない
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
