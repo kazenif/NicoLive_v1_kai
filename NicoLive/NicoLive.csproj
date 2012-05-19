@@ -386,7 +386,6 @@
     <Content Include="CookieGetterSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\CookieGetterSharp\CookieGetterSharp.dll" />
     <Content Include="Resources\extend_fail.bmp" />
     <None Include="Resources\FMEng.bmp" />
     <None Include="Resources\FMEstart.bmp" />
@@ -408,18 +407,8 @@
     <None Include="Resources\start.bmp" />
     <None Include="Resources\encho.bmp" />
     <None Include="Resources\ending.bmp" />
-    <None Include="lib\Twitter\.svn\entries" />
-    <None Include="lib\Twitter\.svn\text-base\oAuth.cs.svn-base" />
-    <None Include="lib\Twitter\.svn\text-base\oAuthTwitter.cs.svn-base" />
-    <None Include="lib\Twitter\.svn\text-base\Twitter.cs.svn-base" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\Twitter\.svn\prop-base\" />
-    <Folder Include="lib\Twitter\.svn\props\" />
-    <Folder Include="lib\Twitter\.svn\tmp\prop-base\" />
-    <Folder Include="lib\Twitter\.svn\tmp\props\" />
-    <Folder Include="lib\Twitter\.svn\tmp\text-base\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
